@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "creator": "cds-dk 4.4.2"
+  },
+  "$version": "2.0",
+  "definitions": {
+    "country": {
+      "kind": "service"
+    },
+    "country.A_Country": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Country": {
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "CountryCurrency": {
+          "type": "cds.String",
+          "length": 5
+        },
+        "IndexBasedCurrency": {
+          "type": "cds.String",
+          "length": 5
+        },
+        "HardCurrency": {
+          "type": "cds.String",
+          "length": 5
+        },
+        "TaxCalculationProcedure": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "CountryThreeLetterISOCode": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "CountryThreeDigitISOCode": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "to_Text": {
+          "type": "cds.Association",
+          "target": "country.A_CountryText",
+          "cardinality": {
+            "max": "*"
+          }
+        }
+      }
+    },
+    "country.A_CountryText": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Country": {
+          "key": true,
+          "type": "cds.String",
+          "length": 3
+        },
+        "Language": {
+          "key": true,
+          "type": "cds.String",
+          "length": 2
+        },
+        "CountryName": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "NationalityName": {
+          "type": "cds.String",
+          "length": 15
+        },
+        "NationalityLongName": {
+          "type": "cds.String",
+          "length": 50
+        },
+        "to_Country": {
+          "type": "cds.Association",
+          "target": "country.A_Country"
+        }
+      }
+    }
+  }
+}
