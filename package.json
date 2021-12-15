@@ -10,6 +10,7 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.96.0",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
@@ -53,11 +54,16 @@
       },
       "db": {
         "kind": "sqlite",
-        "model": "*",
         "credentials": {
-          "database": "db/adagency.db"
+          "database": "db/ad.db"
         }
       }
     }
-  }
+  },
+  "sapux": [
+    "app/ad-detail-ui",
+    "app/user-profile-ui",
+    "app/ad-plan-ui",
+    "app/ad-order-ui"
+  ]
 }

@@ -10,15 +10,17 @@ using from './data-model';
 using from './userSchema';
 
 entity ManageOrder : cuid {
-    key ID          : UUID @odata.Type : 'Edm.String';
+    key ID          : UUID                         @odata.Type : 'Edm.String';
         userID      : String;
+        userName    : String                       @title      : 'User Name';
         adID        : String;
+        adtitle     : String                       @title      : 'Ad Title';
         planID      : String;
         //description : LargeString;
         address     : LargeString;
         country     : String;
         totalAmount : Integer;
-        status      : Association to MyOrderStatus @title : 'Order Status';
+        status      : Association to MyOrderStatus @title      : 'Order Status';
 }
 
 // type OrderStatus : String enum {

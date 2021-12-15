@@ -1,8 +1,4 @@
-//using from './adagency-paymentplan';
-using from './adagency-service';
-using from './adDetail-service';
-using from './adagency-userprofile';
-using from '@sap/cds/common';
+using from '../../srv/adagency-service';
 
 annotate AdAgencyServices.PaymentPlanDetails with @odata.draft.enabled;
 
@@ -14,12 +10,12 @@ UI : {
     LineItem            : [
         //  {Value: cType},
         {
-            Value: userID,
-            Label: 'User ID'
+            Value : userID,
+            Label : 'User ID'
         },
         {
-            Value: adId,
-            Label:'Ad ID'
+            Value : adId,
+            Label : 'Ad ID'
         },
         {
             Value : content_contentType,
@@ -27,9 +23,15 @@ UI : {
         },
         {Value : content.contentSizeLimit},
         //  {Value: content.unitOfMeasurement,Label:'Measurement Unit'},
-        {Value: content.contentCost, Label: 'Content Cost'},
+        {
+            Value : content.contentCost,
+            Label : 'Content Cost'
+        },
         {Value : preferences.preferenceType},
-        {Value : preferences.preferenceCost, Label: 'Preference Cost'},
+        {
+            Value : preferences.preferenceCost,
+            Label : 'Preference Cost'
+        },
         {Value : startDate},
         {Value : endDate},
 
@@ -55,26 +57,32 @@ UI : {
     FieldGroup #General : {Data : [
         {
             Value : userID,
-            Label : '{i18n>Select User}'
+            Label : '{i18n>User}'
+        },
+        {
+            Value : userName,
+            Label : '{i18n>User Name}'
         },
         {
             Value : adId,
             Label : '{i18n>Select User Ad}'
         },
+        {Value : adtitle},
         {
             Value : preferences_ID,
             Label : '{i18n>Preferences}'
         },
+        {Value : prefName},
         {
             Value : content_contentType,
             Label : '{i18n>Contents}'
         },
         {Value : startDate},
         {Value : endDate},
-        // {
-        //     $Type : 'UI.DataField',
-        //     Value : totalCost
-        // }
+    // {
+    //     $Type : 'UI.DataField',
+    //     Value : totalCost
+    // }
 
 
     //                         {
@@ -109,7 +117,7 @@ annotate AdAgencyServices.PaymentPlanDetails with {
                     ValueListProperty : 'contentSizeLimit'
                 },
                 {
-                     $Type             : 'Common.ValueListParameterDisplayOnly',
+                    $Type             : 'Common.ValueListParameterDisplayOnly',
                     ValueListProperty : 'contentCost'
                 }
             ]
@@ -134,8 +142,9 @@ annotate AdAgencyServices.PaymentPlanDetails with {
                     ValueListProperty : 'ID',
                 },
                 {
-                    $Type             : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'preferenceType'
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : 'prefName',
+                    ValueListProperty : 'preferenceType',
                 },
                 {
                     $Type             : 'Common.ValueListParameterDisplayOnly',
@@ -162,8 +171,9 @@ annotate AdAgencyServices.PaymentPlanDetails with {
                     ValueListProperty : 'profileId'
                 },
                 {
-                    $Type             : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'firstName',
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : 'userName',
+                    ValueListProperty : 'firstName'
                 },
                 {
                     $Type             : 'Common.ValueListParameterDisplayOnly',
@@ -196,7 +206,8 @@ annotate AdAgencyServices.PaymentPlanDetails with {
                     ValueListProperty : 'ID',
                 },
                 {
-                    $Type             : 'Common.ValueListParameterDisplayOnly',
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : 'adtitle',
                     ValueListProperty : 'title',
                 },
                 {

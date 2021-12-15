@@ -8,8 +8,9 @@ using {cuid} from '@sap/cds/common';
 
 entity AdDetails : cuid {
     key ID             : UUID        @odata.Type       : 'Edm.String'  @Core.Computed;
-     //  key ID : String @odata.Type       : 'Edm.String'  @Core.Computed;
-        userID         : String; 
+        //  key ID : String @odata.Type       : 'Edm.String'  @Core.Computed;
+        userID         : String;
+        userName       : String;
         //@cds.on.insert:$now;
         title          : String;
         textContent    : LargeString;
@@ -18,7 +19,8 @@ entity AdDetails : cuid {
         imageType      : String(60)  @Core.IsMediaType : true;
         image          : LargeBinary @Core.MediaType   : imageType  @Core.ContentDisposition.Filename : fileName;
         fileName       : String;
-        category       : Association to Category;
+        category       : Association to Category @title : 'Category';
+        catgName       : String;
         graphicContent : Association to many GraphicContent
                              on graphicContent.addetails = $self;
 }

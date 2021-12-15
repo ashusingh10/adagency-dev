@@ -1,12 +1,12 @@
-using from './adDetail-service';
-using from './adagency-userprofile';
+using from '../../srv/adDetail-service';
+using from '../../srv/adagency-userprofile';
 using from '@sap/cds/common';
 
 annotate AdDetailService.AdDetails with @odata.draft.enabled;
 
 annotate AdDetailService.AdDetails with @(UI : {
     SelectionFields     : [
-        categoryName,
+        category_ID,
         userID
     ],
     LineItem            : [
@@ -14,6 +14,7 @@ annotate AdDetailService.AdDetails with @(UI : {
             Value : userID,
             Label : 'User ID',
         },
+        
         {
             $Type : 'UI.DataField',
             Value : ID
@@ -26,11 +27,11 @@ annotate AdDetailService.AdDetails with @(UI : {
             $Type : 'UI.DataField',
             Value : categoryName,
         },
-        {
-            $Type : 'UI.DataField',
-            Value : category_ID,
-            Label : 'Category ID'
-        },
+        // {
+        //     $Type : 'UI.DataField',
+        //     Value : category_ID,
+        //     Label : 'Category ID'
+        // },
         {
             $Type : 'UI.DataField',
             Value : adCountry,
@@ -54,8 +55,16 @@ annotate AdDetailService.AdDetails with @(UI : {
     FieldGroup #General : {Data : [
         {Value : userID},
          {
+            Value : userName,
+            Label : 'User Name',
+        },
+         {
             Value : category_ID,
             Label : 'Category'
+        },
+         {
+            Value : catgName,
+            Label : 'Category Name'
         },
         {Value : title},
         {Value : textContent},
@@ -103,6 +112,11 @@ annotate AdDetailService.AdDetails with {
                     LocalDataProperty : 'category_ID',
                     ValueListProperty : 'ID'
                 },
+                  {
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : 'catgName',
+                    ValueListProperty : 'name'
+                },
                 {
                     $Type             : 'Common.ValueListParameterDisplayOnly',
                     ValueListProperty : 'name'
@@ -124,6 +138,11 @@ annotate AdDetailService.AdDetails with {
                     $Type             : 'Common.ValueListParameterInOut',
                     LocalDataProperty : 'userID',
                     ValueListProperty : 'profileId'
+                },
+                 {
+                    $Type             : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : 'userName',
+                    ValueListProperty : 'firstName'
                 },
                 {
                     $Type             : 'Common.ValueListParameterDisplayOnly',

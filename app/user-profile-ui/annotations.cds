@@ -1,5 +1,4 @@
-using from './adagency-userprofile';
-//using {adagency.Gender as gen} from '../db/userSchema';
+using from '../../srv/adagency-userprofile';
 
 annotate UserProfile.User with @odata.draft.enabled;
 
@@ -134,22 +133,6 @@ annotate UserProfile.User with @(UI : {
 annotate UserProfile.User with {
     @UI.MultiLineText street
 };
-
-annotate UserProfile.User with {
-    profileId   @title : '{i18n>User ID}';
-    firstName   @title : '{i18n>First Name}';
-    lastName    @title : '{i18n>Last Name}';
-    gender      @title : '{i18n>Gender}';
-    email       @title : '{i18n>Email}';
-    phoneNumber @title : '{i18n>Phone Number}';
-    password    @title : '{i18n>Password}';
-    street      @title : '{i18n>Street}';
-    city        @title : '{i18n>City}';
-    state       @title : '{i18n>State}';
-    pinCode     @title : '{i18n>Pincode}';
-
-
-}
 
 annotate UserProfile.User with {
     gender @(Common : {
