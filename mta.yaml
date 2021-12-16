@@ -88,3 +88,12 @@ resources:
      service-name: adagency-destination
      service: destination
      service-plan: lite
+
+ # ------------------------------------------------------------
+ - name: adagency-uaa
+ # ------------------------------------------------------------
+   type: org.cloudfoundry.managed-service
+   parameters:
+     path: ./xs-security.json
+     service: xsuaa
+     service-plan: application 

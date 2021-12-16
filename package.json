@@ -48,7 +48,9 @@
                 "kind": "odata-v2",
                 "model": "srv/external/country",
                 "credentials": {
-                    "destination": "Country"
+                    "url": "http://137.116.78.232:8000/sap/opu/odata/sap/API_COUNTRY_SRV/",
+                    "username": "51673070",
+                    "password": "India@123"
                 }
             },
             "db": {
