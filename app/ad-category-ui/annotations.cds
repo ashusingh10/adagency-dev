@@ -1,0 +1,1 @@
+using AdDetailService as service from 'adagency../../../home/user/projects/adagency-proj/srv/adDetail-service';

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{appTitle}}</title>
+
+        <script>
+            window['sap-ushell-config'] = {
+                defaultRenderer: 'fiori2',
+                applications: {
+                    'user-profile-ui': {
+                        title: 'User Profile',
+                        description: 'A Fiori application.',
+                        additionalInformation: 'SAPUI5.Component=userprofileui',
+                        applicationType: 'URL',
+                        url: '/user-profile-ui/webapp',
+                        navigationMode: 'embedded'
+                    },
+                    'ad-detail-ui': {
+                        title: 'Manage Ad',
+                        description: 'A Fiori application.',
+                        additionalInformation: 'SAPUI5.Component=addetailui',
+                        applicationType: 'URL',
+                        url: '/ad-detail-ui/webapp',
+                        navigationMode: 'embedded'
+                    },
+                    'ad-plan-ui': {
+                        title: 'Manage Plan',
+                        description: 'A Fiori application.',
+                        additionalInformation: 'SAPUI5.Component=adplanui',
+                        applicationType: 'URL',
+                        url: '/ad-plan-ui/webapp',
+                        navigationMode: 'embedded'
+                    },
+                    'ad-order-ui': {
+                        title: 'Manage Order',
+                        description: 'A Fiori application.',
+                        additionalInformation: 'SAPUI5.Component=adorderui',
+                        applicationType: 'URL',
+                        url: '/ad-order-ui/webapp',
+                        navigationMode: 'embedded'
+                    },
+                    'ad-category-ui': {
+                        title: 'Manage Category',
+                        description: 'A Fiori application.',
+                        additionalInformation: 'SAPUI5.Component=adcategoryui',
+                        applicationType: 'URL',
+                        url: '/ad-category-ui/webapp',
+                        navigationMode: 'embedded'
+                    },
+                    'ad-content-ui': {
+                        title: 'Manage Content',
+                        description: 'A Fiori application.',
+                        additionalInformation: 'SAPUI5.Component=adcontentui',
+                        applicationType: 'URL',
+                        url: '/ad-content-ui/webapp',
+                        navigationMode: 'embedded'
+                    },
+                    'ad-preferances-ui': {
+                        title: 'Manage Preferences',
+                        description: 'A Fiori application.',
+                        additionalInformation: 'SAPUI5.Component=adpreferancesui',
+                        applicationType: 'URL',
+                        url: '/ad-preferances-ui/webapp',
+                        navigationMode: 'embedded'
+                    }
+                }
+            };
+        </script>
+
+        <script src="https://ui5.sap.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
+        <script
+            src="https://ui5.sap.com/resources/sap-ui-core.js"
+            data-sap-ui-libs="sap.m, sap.ushell, sap.fe.templates"
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-theme="sap_fiori_3"
+            data-sap-ui-frameOptions="allow"
+            data-sap-ui-bindingSyntax="complex"
+        ></script>
+        <script>
+            sap.ui.getCore().attachInit(function() {
+                sap.ushell.Container.createRenderer().placeAt('content');
+            });
+        </script>
+    </head>
+    <body class="sapUiBody" id="content"></body>
+</html>

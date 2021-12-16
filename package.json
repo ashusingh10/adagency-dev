@@ -1,69 +1,77 @@
 {
-  "name": "adagency",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^5",
-    "express": "^4"
-  },
-  "devDependencies": {
-    "@sap/ux-specification": "^1.96.0",
-    "sqlite3": "^5.0.2"
-  },
-  "scripts": {
-    "start": "cds run"
-  },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "es2020": true,
-      "node": true,
-      "jest": true,
-      "mocha": true
+    "name": "adagency",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^5",
+        "express": "^4",
+        "hdb": "^0.18.3"
     },
-    "globals": {
-      "SELECT": true,
-      "INSERT": true,
-      "UPDATE": true,
-      "DELETE": true,
-      "CREATE": true,
-      "DROP": true,
-      "CDL": true,
-      "CQL": true,
-      "CXL": true,
-      "cds": true
+    "devDependencies": {
+        "@sap/ux-specification": "^1.96.0",
+        "sqlite3": "^5.0.2"
     },
-    "rules": {
-      "no-console": "off",
-      "require-atomic-updates": "off"
-    }
-  },
-  "cds": {
-    "requires": {
-      "country": {
-        "kind": "odata-v2",
-        "model": "srv/external/country",
-        "credentials": {
-          "url": "http://137.116.78.232:8000/sap/opu/odata/sap/API_COUNTRY_SRV/",
-          "username": "aagarwal",
-          "password": "123G3d@123"
+    "scripts": {
+        "start": "cds run"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "es2020": true,
+            "node": true,
+            "jest": true,
+            "mocha": true
+        },
+        "globals": {
+            "SELECT": true,
+            "INSERT": true,
+            "UPDATE": true,
+            "DELETE": true,
+            "CREATE": true,
+            "DROP": true,
+            "CDL": true,
+            "CQL": true,
+            "CXL": true,
+            "cds": true
+        },
+        "rules": {
+            "no-console": "off",
+            "require-atomic-updates": "off"
         }
-      },
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": "db/ad.db"
+    },
+    "cds": {
+        "requires": {
+            "country": {
+                "kind": "odata-v2",
+                "model": "srv/external/country",
+                "credentials": {
+                    "destination": "Country"
+                }
+            },
+            "db": {
+                "kind": "sql",
+                "credentials": {
+                    "database": "db/ad.db"
+                }
+            },
+            "[production]": {
+                "kind": "hana"
+            }
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
         }
-      }
-    }
-  },
-  "sapux": [
-    "app/ad-detail-ui",
-    "app/user-profile-ui",
-    "app/ad-plan-ui",
-    "app/ad-order-ui"
-  ]
+    },
+    "sapux": [
+        "app/ad-detail-ui",
+        "app/user-profile-ui",
+        "app/ad-plan-ui",
+        "app/ad-order-ui",
+        "app/ad-category-ui",
+        "app/ad-preferances-ui",
+        "app/ad-content-ui"
+    ]
 }

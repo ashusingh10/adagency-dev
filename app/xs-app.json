@@ -1,0 +1,52 @@
+{
+    "welcomeFile": "app/launchpad.html",
+    "authenticationMethod": "none",
+    "routes": [
+         {
+            "source": "^/app/(.*)$",
+            "cacheControl": "no-cache, no-store, must-revalidate",
+            "target": "$1",
+            "localDir": "./"
+
+        },
+        {
+            "source": "^/ad-detail-ui/webapp/(.*)$",
+            "target": "$1",
+            "localDir": "ad-detail-ui/webapp/"
+        },
+        {
+            "source": "^/ad-order-ui/webapp/(.*)$",
+            "target": "$1",
+            "localDir": "ad-order-ui/webapp/"
+        },
+        {
+            "source": "^/ad-plan-ui/webapp/(.*)$",
+            "target": "$1",
+            "localDir": "ad-plan-ui/webapp/"
+        },
+        {
+            "source": "^/user-profile-ui/webapp/(.*)$",
+            "target": "$1",
+            "localDir": "user-profile-ui/webapp/"
+        },
+        {
+            "source": "^/ad-content-ui/webapp/(.*)$",
+            "target": "$1",
+            "localDir": "ad-content-ui/webapp/"
+        },
+        {
+            "source": "^/ad-category-ui/webapp/(.*)$",
+            "target": "$1",
+            "localDir": "ad-category-ui/webapp/"
+        },
+        {
+            "source": "^/ad-preferances-ui/webapp/(.*)$",
+            "target": "$1",
+            "localDir": "ad-preferances-ui/webapp/"
+        },
+        {
+            "source": "^(.*)$",
+            "destination": "srv-api"
+        }
+    ]
+}
