@@ -14,7 +14,7 @@ annotate AdDetailService.AdDetails with @(UI : {
             Value : userID,
             Label : 'User ID',
         },
-        
+
         {
             $Type : 'UI.DataField',
             Value : ID
@@ -54,21 +54,20 @@ annotate AdDetailService.AdDetails with @(UI : {
 
     FieldGroup #General : {Data : [
         {Value : userID},
-         {
+        {
             Value : userName,
             Label : 'User Name',
         },
-         {
+        {
             Value : category_ID,
             Label : 'Category'
         },
-         {
+        {
             Value : catgName,
             Label : 'Category Name'
         },
         {Value : title},
         {Value : textContent},
-       
         {Value : adCountry},
         {
             Value : image,
@@ -77,7 +76,7 @@ annotate AdDetailService.AdDetails with @(UI : {
     ]}
 },
 
- );
+);
 
 annotate AdDetailService.AdDetails with {
     @UI.MultiLineText
@@ -95,7 +94,7 @@ annotate AdDetailService.AdDetails with {
     title        @title : '{i18n>Ad Title}';
     categoryName @title : '{i18n>Category Name}';
     textContent  @title : '{i18n>Text Content}';
-    userID       @title : '{i18n>User ID}' @Consumption.filter.defaultValue ;
+    userID       @title : '{i18n>User ID}'  @Consumption.filter.defaultValue;
     adCountry    @title : '{i18n>Country}';
 }
 
@@ -112,15 +111,11 @@ annotate AdDetailService.AdDetails with {
                     LocalDataProperty : 'category_ID',
                     ValueListProperty : 'ID'
                 },
-                  {
+                {
                     $Type             : 'Common.ValueListParameterInOut',
                     LocalDataProperty : 'catgName',
                     ValueListProperty : 'name'
-                },
-                {
-                    $Type             : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'name'
-                },
+                }
             ]
         }
     });
@@ -139,14 +134,10 @@ annotate AdDetailService.AdDetails with {
                     LocalDataProperty : 'userID',
                     ValueListProperty : 'profileId'
                 },
-                 {
+                {
                     $Type             : 'Common.ValueListParameterInOut',
                     LocalDataProperty : 'userName',
                     ValueListProperty : 'firstName'
-                },
-                {
-                    $Type             : 'Common.ValueListParameterDisplayOnly',
-                    ValueListProperty : 'firstName',
                 },
                 {
                     $Type             : 'Common.ValueListParameterDisplayOnly',
@@ -159,28 +150,27 @@ annotate AdDetailService.AdDetails with {
 
 annotate AdDetailService.AdDetails with {
     adCountry @(Common : {
-       // FieldControl : #Mandatory,
-        ValueList    : {
-            CollectionPath  : 'CountryText',
-            Label           : 'Country Text',
-            SearchSupported : true,
-            Parameters      : [
-                {
-                    $Type             : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : 'adCountry',
-                    ValueListProperty : 'Country'
-                },
-                {
-                    $Type             : 'Common.ValueListParameterFilterOnly',
-                    ValueListProperty : 'countryName'
-                },
-                {
-                    $Type             : 'Common.ValueListParameterFilterOnly',
-                    ValueListProperty : 'language'
-                }
-            ]
-        }
-    });
+                          // FieldControl : #Mandatory,
+                         ValueList : {
+        CollectionPath  : 'CountryText',
+        Label           : 'Country Text',
+        SearchSupported : true,
+        Parameters      : [
+            {
+                $Type             : 'Common.ValueListParameterInOut',
+                LocalDataProperty : 'adCountry',
+                ValueListProperty : 'Country'
+            },
+            {
+                $Type             : 'Common.ValueListParameterFilterOnly',
+                ValueListProperty : 'countryName'
+            },
+            {
+                $Type             : 'Common.ValueListParameterFilterOnly',
+                ValueListProperty : 'language'
+            }
+        ]
+    }});
 }
 
 // annotate AdDetailService.Category with {
